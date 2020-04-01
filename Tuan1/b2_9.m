@@ -8,10 +8,15 @@ function b2_9
     df = @(x)(a1 / a4) * sin(x) - sin(beta - x);
     
     [zero ,res , niter]= newton(f,df ,x01 ,1e-5, 100);
-    x1 = zero
+    
+    x1(k+1) = zero;
     [zero ,res , niter]= newton(f,df ,x02 ,1e-5, 100);
-    x2 = zero
-
+    x2(k+1) = zero;
+    res2(k+1) = res;
+    x3(k+1) = fsolve(f, x01);
+    x4(k+1) = fsolve(f, x02);
+    
   end
-
+max(x3 - x1)
+max(x4 - x2)
 end

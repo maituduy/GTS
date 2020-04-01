@@ -1,8 +1,9 @@
 function b2_2
   fun = @f;
   dfun = @df;
-  [zero,res,niter] = newton(fun, dfun, 1, 10e-12, 1000);
-  zero
+  tic
+  [zero,res,niter] = newton(fun, dfun, 1, 10e-12, 1000)
+  toc
 end
 
 function res = f(V)
